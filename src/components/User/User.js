@@ -8,7 +8,7 @@ class User extends Component {
             <div className="row">
                 <ListUser></ListUser>
                 
-                <AddUser></AddUser>
+                <AddUser showFormAddUser={ this.props.showFormAddUser }></AddUser>
             </div>
         );
     }

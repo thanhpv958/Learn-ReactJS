@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 class AddUser extends Component {
-    render() {
-        return (
-            <div className="col-3">
+
+    showFormAddUser = () => {
+        if (this.props.showFormAddUser) {
+            return (
                 <div className="card border-primary">
                     <div className="card-header">
                         Thêm mới user
@@ -25,6 +26,14 @@ class AddUser extends Component {
                         <button type="submit" className="btn btn-primary btn-block">Submit</button>
                     </div>
                 </div>
+            );
+        }
+    };
+
+    render() {
+        return (
+            <div className="col-3">
+                { this.showFormAddUser() }
             </div>
         );
     }

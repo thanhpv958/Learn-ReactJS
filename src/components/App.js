@@ -4,12 +4,30 @@ import Search from './Search/Search';
 import User from './User/User';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showFormAddUser: true,
+        };
+    }
+
+    changeStateFormAddUser = () => {
+        this.setState({
+            showFormAddUser: !this.state.showFormAddUser,
+        });
+    };
+    
     render() {
         return (
             <div className="container">
-                <Search></Search>
+                <Search
+                    showFormAddUser = { this.state.showFormAddUser }
+                    changeStateFormAddUser = { () => this.changeStateFormAddUser() }>
+                </Search>
 
-                <User></User>   
+                <User
+                    showFormAddUser = { this.state.showFormAddUser } >
+                </User>   
             </div>
         );
     }

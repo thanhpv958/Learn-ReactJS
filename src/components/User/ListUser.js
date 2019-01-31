@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 
 class ListUser extends Component {
+
+    classFormListUser = () => {
+        if (this.props.showFormAddUser) {
+            return 'col-9';
+        }
+
+        return 'col-12';
+    }
+
     render() {
         return (
-            <div className="col-9">
+            <div className={ this.classFormListUser() }>
                 <table className="table table-striped table-inverse">
                     <thead className="thead-inverse">
                         <tr>

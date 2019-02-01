@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TbodyListUser from './TbodyListUser';
 
 class ListUser extends Component {
 
@@ -8,7 +9,17 @@ class ListUser extends Component {
         }
 
         return 'col-12';
-    }
+    };
+
+    showListUser = () => this.props.dataUser.map((value, key) => (
+        <TbodyListUser
+            key = { key }
+            num = { key + 1 }
+            name = { value.name }
+            phone = { value.phone }
+            role = { value.role }
+        />
+    ));
 
     render() {
         return (
@@ -24,54 +35,7 @@ class ListUser extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Phan Van Thanh</td>
-                            <td>5345345435</td>
-                            <td>Admin</td>
-                            <td>
-                                <div className="btn-group">
-                                    <button className="btn btn-warning"><i className="fa fa-edit" /> Sửa</button>
-                                    <button className="btn btn-danger"><i className="fa fa-trash" /> Xoá</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phan Van Thanh</td>
-                            <td>5345345435</td>
-                            <td>Admin</td>
-                            <td>
-                                <div className="btn-group">
-                                    <button className="btn btn-warning"><i className="fa fa-edit" /> Sửa</button>
-                                    <button className="btn btn-danger"><i className="fa fa-trash" /> Xoá</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phan Van Thanh</td>
-                            <td>5345345435</td>
-                            <td>Admin</td>
-                            <td>
-                                <div className="btn-group">
-                                    <button className="btn btn-warning"><i className="fa fa-edit" /> Sửa</button>
-                                    <button className="btn btn-danger"><i className="fa fa-trash" /> Xoá</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phan Van Thanh</td>
-                            <td>5345345435</td>
-                            <td>Admin</td>
-                            <td>
-                                <div className="btn-group">
-                                    <button className="btn btn-warning"><i className="fa fa-edit" /> Sửa</button>
-                                    <button className="btn btn-danger"><i className="fa fa-trash" /> Xoá</button>
-                                </div>
-                            </td>
-                        </tr>
+                        { this.showListUser() }
                     </tbody>
                 </table>
             </div>

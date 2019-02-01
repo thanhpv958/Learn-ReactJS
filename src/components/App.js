@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from './Search/Search';
 import User from './User/User';
+import dataUser from './DataUser.json';
 
 class App extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class App extends Component {
             showFormAddUser: !this.state.showFormAddUser,
         });
     };
-    
+
     render() {
         return (
             <div className="container">
@@ -24,9 +25,10 @@ class App extends Component {
                     showFormAddUser = { this.state.showFormAddUser }
                     changeStateFormAddUser = { () => this.changeStateFormAddUser() }>
                 </Search>
-
+                
                 <User
-                    showFormAddUser = { this.state.showFormAddUser } >
+                    showFormAddUser = { this.state.showFormAddUser }
+                    dataUser = { dataUser }>
                 </User>   
             </div>
         );

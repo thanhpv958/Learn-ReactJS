@@ -6,9 +6,12 @@ class User extends Component {
     render() {
         return (
             <div className="row">
-                <ListUser showFormAddUser={ this.props.showFormAddUser }></ListUser>
+                <ListUser
+                    showFormAddUser={ this.props.showFormAddUser }
+                    dataUser={ this.props.dataUser }
+                />
                 
-                <AddUser showFormAddUser={ this.props.showFormAddUser }></AddUser>
+                <AddUser showFormAddUser={ this.props.showFormAddUser }/>
             </div>
         );
     }

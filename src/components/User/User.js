@@ -3,6 +3,8 @@ import ListUser from './ListUser';
 import AddUser from './AddUser';
 import dataUser from '../DataUser.json';
 
+const uuid = require('uuid/v1');
+
 class User extends Component {
 
     constructor(props) {
@@ -14,7 +16,7 @@ class User extends Component {
     
     getNewUser = (name, phone, role) => {
         let user = {};
-        user.id = "";
+        user.id = uuid();
         user.name = name;
         user.phone = phone;
         user.role = role;

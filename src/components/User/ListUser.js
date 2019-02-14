@@ -11,7 +11,7 @@ class ListUser extends Component {
         return 'col-12';
     };
 
-    showListUser = () => this.props.dataUser.map((value, key) => (
+    showTbodyListUser = () => this.props.dataUser.map((value, key) => (
         <TbodyListUser
             key = { key }
             num = { key + 1 }
@@ -35,7 +35,7 @@ class ListUser extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.showListUser() }
+                        { this.showTbodyListUser() }
                     </tbody>
                 </table>
             </div>

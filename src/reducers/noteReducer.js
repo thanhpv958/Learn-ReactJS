@@ -1,13 +1,11 @@
-const noteInitialState = {
-    'note': {
-        'title': 'ABC',
-        'content': 'ASFSDFSDFDF'
-    }
-}
+import noteConnect from '../firebase/noteConnect';
+
+const noteInitialState = {}
 const noteReducer = (state = noteInitialState, action) => {
     switch (action.type) {
         case "NOTE_ADD":
-            console.log('note add');
+            noteConnect.push(action.data);
+
             return state;
         case "EDIT":
             return state

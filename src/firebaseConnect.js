@@ -15,13 +15,13 @@ export default firebaseConnect;
 
 // lay du lieu
 var data = firebase.database().ref('notes/');
-data.once('value').then(function (snapshot) {
-    console.log(snapshot.val());
-});
+// data.once('value').then(function (snapshot) {
+//     console.log(snapshot.val());
+// });
 
 // push tu random id
 // set phai tu set id
-data.push({
-    'title': 'title',
-    'content': 'content'
-});
+// data.push({
+//     'title': 'title',
+//     'content': 'content'
+// });

@@ -47,7 +47,6 @@ class AddNote extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        note: state.note
     }
 }
 
@@ -55,7 +54,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         storeData: (data) => {
             dispatch({
-                type: 'NOTE_ADD',
+                type: 'NOTE_STORE',
                 data: data
             })
         }

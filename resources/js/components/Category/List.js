@@ -42,6 +42,10 @@ export default class List extends Component {
                     <td>Active</td>
                     <td>{ category.created_at }</td>
                     <td>{ category.updated_at }</td>
+                    <td>
+                        <button type="button" class="btn btn-warning mr-1">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             );
         });
@@ -58,6 +62,7 @@ export default class List extends Component {
                             <th scope="col">Status</th>
                             <th scope="col">Created at</th>
                             <th scope="col">Updated at</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>

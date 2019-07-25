@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import Home from './Home';
 import About from './About';
+import Category from './Category/Index';
 
 export default class Header extends Component {
     render() {
         return (
             <Router>
                 <div>
-                    <nav className="navbar navbar-expand-sm navbar-light bg-light">
+                    <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-2">
                         <a className="navbar-brand" href="#">Navbar</a>
                         <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon" />
@@ -21,13 +23,9 @@ export default class Header extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/about">About</Link>
                                 </li>
-                                
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownId">
-                                        <a className="dropdown-item" href="#">Action 1</a>
-                                        <a className="dropdown-item" href="#">Action 2</a>
-                                    </div>
+
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/category">Category</Link>
                                 </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
@@ -39,6 +37,7 @@ export default class Header extends Component {
 
                     <Route exact path='/' component={ Home }/>
                     <Route exact path='/about' component={ About }/>
+                    <Route exact path='/category' component={ Category }/>
                 </div>
             </Router>
         );

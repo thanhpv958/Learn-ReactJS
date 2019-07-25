@@ -8,9 +8,9 @@ export default class Index extends Component {
     render() {
         return (
             <Router>
-                <div class='mb-2'>
-                    <Link to='/category' class='btn btn-primary'>List</Link>
-                    <Link to='category/add' class='btn btn-primary ml-2'>Add</Link>
+                <div className='mb-2'>
+                    <Link to='/category' className='btn btn-primary'>List</Link>
+                    <Link to='category/add' className='btn btn-primary ml-2'>Add</Link>
                 </div>
 
                 <Route exact path='/category' component={ List } />

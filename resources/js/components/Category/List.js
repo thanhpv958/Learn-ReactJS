@@ -1,6 +1,52 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class List extends Component {
+
+    constructor() 
+    {
+        super();
+        this.state = {
+            categories: []
+        }
+    }
+
+    /**
+     * Life cycle method
+     */
+    componentDidMount()
+    {
+        this.fetchCategories().then(response => {
+            this.setState({ categories: response.data.data });
+        });
+    }
+
+    /**
+     * Fetch categories
+     */
+    fetchCategories()
+    {
+        return axios.get('http://127.0.0.1:8001/api/categories');
+    }
+
+    /**
+     * Append categories
+     */
+    appendCategories()
+    {
+        return this.state.categories.map((category, key) => {
+            return (
+                <tr key={ key + 1 }>
+                    <th scope="row">{ key + 1 }</th>
+                    <td>{ category.name }</td>
+                    <td>Active</td>
+                    <td>{ category.created_at }</td>
+                    <td>{ category.updated_at }</td>
+                </tr>
+            );
+        });
+    }
+
     render() {
         return (
             <div>
@@ -15,26 +61,7 @@ export default class List extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colSpan={2}>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
-                        </tr>
+                        { this.appendCategories() }
                     </tbody>
                 </table>
             </div>

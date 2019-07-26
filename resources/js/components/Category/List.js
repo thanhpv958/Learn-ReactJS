@@ -43,12 +43,25 @@ export default class List extends Component {
                     <td>{ category.created_at }</td>
                     <td>{ category.updated_at }</td>
                     <td>
-                        <button type="button" class="btn btn-warning mr-1">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" className="btn btn-warning mr-1">Edit</button>
+                        <button type="button" onClick={ () => this.deleteCategory(category.id) } className="btn btn-danger">Delete</button>
                     </td>
                 </tr>
             );
         });
+    }
+
+    
+    deleteCategory(categoryId)
+    {
+        axios.delete('http://127.0.0.1:8001/api/categories/' + categoryId);
+
+        let categories = this.state.categories.filter((category) => {
+            return category.id !== categoryId;
+        });
+        this.setState({ categories: categories });
+
+        return;
     }
 
     render() {
